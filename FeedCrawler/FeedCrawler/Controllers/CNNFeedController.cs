@@ -1,16 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using FeedCrawler.Services;
 
 namespace FeedCrawler.Controllers
 {
     public class CNNFeedController : Controller
     {
+        private ICNNFeedService _cnnFeedService;
+
+        public CNNFeedController(ICNNFeedService cnnFeedService)
+        {
+            _cnnFeedService = cnnFeedService;
+        }
+
+        [HttpGet]
         public ActionResult GetData()
         {
-            return Json(new { success = true });
+            var feeds = _cnnFeedService.GetCNNFeed();
+            return Json(feeds, JsonRequestBehavior.AllowGet);
         }
     }
 }

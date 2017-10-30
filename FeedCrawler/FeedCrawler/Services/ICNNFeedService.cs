@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using FeedCrawler.Models;
 
 namespace FeedCrawler.Services
 {
     public interface ICNNFeedService
     {
-        List<RssFeed> GetCNNFeed();
+        IEnumerable<RssFeed> GetCNNFeed();
     }
 }
