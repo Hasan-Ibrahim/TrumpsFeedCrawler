@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using FeedCrawler.Models;
 using FeedCrawler.Repositories;
+using LinqToTwitter;
 
 namespace FeedCrawler.Services
 {
