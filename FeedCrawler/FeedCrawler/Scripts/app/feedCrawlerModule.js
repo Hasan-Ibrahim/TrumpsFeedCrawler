@@ -1,0 +1,1 @@
+﻿var feedCrawlerModule = angular.module('feedCrawlerModule', []);
