@@ -264,8 +264,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CNNFeedRepository.cs" />
     <Compile Include="Repositories\ICNNFeedRepository.cs" />
+    <Compile Include="Repositories\ITwitterFeedRepository.cs" />
+    <Compile Include="Repositories\TwitterFeedRepository.cs" />
     <Compile Include="Services\CNNFeedSevice.cs" />
     <Compile Include="Services\ICNNFeedService.cs" />
+    <Compile Include="Services\ITwitterFeedService.cs" />
+    <Compile Include="Services\TwitterFeedService.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>

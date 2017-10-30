@@ -9,7 +9,7 @@ namespace FeedCrawler.Services
 {
     public class CNNFeedSevice : ICNNFeedService
     {
-        private ICNNFeedRepository _cnnFeedRepository;
+        private readonly ICNNFeedRepository _cnnFeedRepository;
 
         public CNNFeedSevice(ICNNFeedRepository cnnFeedRepository)
         {

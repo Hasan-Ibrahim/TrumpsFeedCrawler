@@ -15,6 +15,9 @@ namespace FeedCrawler
             container.RegisterType<ICNNFeedRepository, CNNFeedRepository>();
             container.RegisterType<ICNNFeedService, CNNFeedSevice>();
 
+            container.RegisterType<ITwitterFeedRepository, TwitterFeedRepository>();
+            container.RegisterType<ITwitterFeedService, TwitterFeedService>();
+
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

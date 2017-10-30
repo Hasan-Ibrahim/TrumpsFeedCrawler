@@ -5,7 +5,7 @@ namespace FeedCrawler.Controllers
 {
     public class CNNFeedController : Controller
     {
-        private ICNNFeedService _cnnFeedService;
+        private readonly ICNNFeedService _cnnFeedService;
 
         public CNNFeedController(ICNNFeedService cnnFeedService)
         {
@@ -13,7 +13,7 @@ namespace FeedCrawler.Controllers
         }
 
         [HttpGet]
-        public ActionResult GetData()
+        public ActionResult GetFeed()
         {
             var feeds = _cnnFeedService.GetCNNFeed("Trump");
             return Json(feeds, JsonRequestBehavior.AllowGet);
