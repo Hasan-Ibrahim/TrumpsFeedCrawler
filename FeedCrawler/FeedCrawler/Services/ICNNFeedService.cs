@@ -5,6 +5,6 @@ namespace FeedCrawler.Services
 {
     public interface ICNNFeedService
     {
-        IEnumerable<RssFeed> GetCNNFeed();
+        IEnumerable<RssFeed> GetCNNFeed(string searchText);
     }
 }

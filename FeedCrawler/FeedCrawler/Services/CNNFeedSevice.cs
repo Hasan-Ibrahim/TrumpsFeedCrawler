@@ -1,32 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Web;
-using System.Xml.Linq;
 using FeedCrawler.Models;
+using FeedCrawler.Repositories;
 
 namespace FeedCrawler.Services
 {
-    public class CNNFeedSevice: ICNNFeedService
+    public class CNNFeedSevice : ICNNFeedService
     {
+        private ICNNFeedRepository _cnnFeedRepository;
 
-        public IEnumerable<RssFeed> GetCNNFeed()
+        public CNNFeedSevice(ICNNFeedRepository cnnFeedRepository)
         {
-            WebClient wclient = new WebClient();
-            string RssData = wclient.DownloadString("http://rss.cnn.com/rss/edition.rss");
+            _cnnFeedRepository = cnnFeedRepository;
+        }
 
-            XDocument xml = XDocument.Parse(RssData);
+        public IEnumerable<RssFeed> GetCNNFeed(string searchText)
+        {
+            var cnnFeeds = _cnnFeedRepository.GetRssFeedFromCNN().ToList();
+            var filteredFeeds = cnnFeeds.Where(feed => feed.Title.Contains(searchText));
 
-            var RssFeedData = xml.Descendants("item").Select(item => new RssFeed
-            {
-                Title = ((string)item.Element("title")),
-                Link = ((string)item.Element("link")),
-                Description = ((string)item.Element("description")),
-                PublishedDate = ((string)item.Element("pubDate"))
-            });
-
-            return RssFeedData;
+            return filteredFeeds.Take(25);
         }
     }
 }

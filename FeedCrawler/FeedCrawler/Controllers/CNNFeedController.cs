@@ -15,7 +15,7 @@ namespace FeedCrawler.Controllers
         [HttpGet]
         public ActionResult GetData()
         {
-            var feeds = _cnnFeedService.GetCNNFeed();
+            var feeds = _cnnFeedService.GetCNNFeed("Trump");
             return Json(feeds, JsonRequestBehavior.AllowGet);
         }
     }
