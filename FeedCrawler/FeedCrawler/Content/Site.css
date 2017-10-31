@@ -34,3 +34,16 @@ textarea {
 .navbar .navbar-collapse {
     text-align: center;
 }
+
+.refresh-button {
+    margin-top: -20px;
+    cursor: pointer;
+}
+
+.header-block {
+    border-bottom: 3px solid;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+        display: none !important;
+    }
