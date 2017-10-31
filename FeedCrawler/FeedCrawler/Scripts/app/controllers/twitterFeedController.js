@@ -12,7 +12,7 @@
 
             }, function (error) {
                 scope.isTwitterFeedLoading = false;
-                toastr.error("Failed to load feed from twitter.", "Error!");
+                toastr.error("Failed to load feed from Twitter.", "Error!");
             });
         }
 
