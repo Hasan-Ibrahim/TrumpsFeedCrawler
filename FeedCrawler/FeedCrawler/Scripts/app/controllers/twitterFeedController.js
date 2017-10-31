@@ -1,5 +1,5 @@
 ﻿feedCrawlerModule.controller('twitterFeedController', [
-    '$scope', 'twitterFeedService', function (scope, twitterFeedService) {
+    '$scope', 'twitterFeedService', '$uibModal', function (scope, twitterFeedService, uibModal) {
 
         function loadFeedsFromTwitter() {
             scope.isTwitterFeedLoading = true;
@@ -16,8 +16,24 @@
 
         loadFeedsFromTwitter();
 
-        scope.refreshFeed = function() {
+        scope.refreshFeed = function () {
             loadFeedsFromTwitter();
+        }
+
+        scope.showTweet = function (statusId) {
+            uibModal.open({
+                animation: true,
+                ariaLabelledBy: 'Original Tweet',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: '/Templates/tweetViewer.html',
+                controller: 'twitterTweetViewerModalController',
+                size:'lg',
+                resolve: {
+                    statusId: function () {
+                        return statusId;
+                    }
+                }
+            });
         }
     }
 ]);

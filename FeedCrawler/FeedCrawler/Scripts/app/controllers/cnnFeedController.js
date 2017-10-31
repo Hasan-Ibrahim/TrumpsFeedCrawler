@@ -25,8 +25,9 @@
                 animation: true,
                 ariaLabelledBy: 'Detail News',
                 ariaDescribedBy: 'modal-body',
-                templateUrl: 'newsViewer.html',
+                templateUrl: '/Templates/newsViewer.html',
                 controller: 'cnnNewsViewerModalController',
+                size: 'lg',
                 resolve: {
                     newsUrl: function () {
                         return newsLink;

@@ -263,6 +263,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\RssFeed.cs" />
+    <Compile Include="Models\Tweet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CNNFeedRepository.cs" />
     <Compile Include="Repositories\ICNNFeedRepository.cs" />
@@ -289,7 +290,10 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\app\controllers\cnnNewsViewerModalController.js" />
+    <Content Include="Templates\newsViewer.html" />
+    <Content Include="Templates\tweetViewer.html" />
     <Content Include="Scripts\app\controllers\twitterFeedController.js" />
+    <Content Include="Scripts\app\controllers\twitterTweetViewerModalController.js" />
     <Content Include="Scripts\app\feedCrawlerModule.js" />
     <Content Include="Scripts\app\services\cnnFeedService.js" />
     <Content Include="Scripts\app\services\twitterFeedService.js" />
@@ -338,8 +342,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Feed\" />
-    <Folder Include="Views\TwitterFeed\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

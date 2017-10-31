@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using FeedCrawler.Models;
 using FeedCrawler.Repositories;
 using LinqToTwitter;
 
 namespace FeedCrawler.Services
 {
-    public class TwitterFeedService: ITwitterFeedService
+    public class TwitterFeedService : ITwitterFeedService
     {
         private readonly ITwitterFeedRepository _twitterFeedRepository;
 
@@ -13,9 +15,10 @@ namespace FeedCrawler.Services
             _twitterFeedRepository = twitterFeedRepository;
         }
 
-        public List<Status> GetTwitterFeed(string username, int sizeLimit)
+        public List<Tweet> GetTwitterFeed(string username, int sizeLimit)
         {
-            return _twitterFeedRepository.GetTwitterFeed(username, sizeLimit);
+            return _twitterFeedRepository.GetTwitterFeed(username, sizeLimit)
+                .Select(status => new Tweet { Text = status.Text, StatusId = status.StatusID.ToString() }).ToList();
         }
     }
 }
