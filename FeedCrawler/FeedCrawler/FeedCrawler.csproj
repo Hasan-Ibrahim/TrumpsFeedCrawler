@@ -288,6 +288,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular.js" />
+    <Content Include="Scripts\app\controllers\cnnNewsViewerModalController.js" />
     <Content Include="Scripts\app\controllers\twitterFeedController.js" />
     <Content Include="Scripts\app\feedCrawlerModule.js" />
     <Content Include="Scripts\app\services\cnnFeedService.js" />

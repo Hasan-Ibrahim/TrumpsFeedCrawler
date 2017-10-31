@@ -1,5 +1,5 @@
 ﻿feedCrawlerModule.controller('cnnFeedController', [
-    '$scope', 'cnnFeedService', function (scope, cnnFeedService) {
+    '$scope', 'cnnFeedService', '$uibModal', function (scope, cnnFeedService, uibModal) {
 
         function loadFeedFromCnn() {
             scope.isCnnFeedLoading = true;
@@ -18,6 +18,21 @@
 
         scope.refreshFeed = function () {
             loadFeedFromCnn();
+        }
+
+        scope.openNews = function (newsLink) {
+            uibModal.open({
+                animation: true,
+                ariaLabelledBy: 'Detail News',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'newsViewer.html',
+                controller: 'cnnNewsViewerModalController',
+                resolve: {
+                    newsUrl: function () {
+                        return newsLink;
+                    }
+                }
+            });
         }
     }
 ]);
