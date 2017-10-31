@@ -290,6 +290,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\app\controllers\cnnNewsViewerModalController.js" />
+    <Content Include="Scripts\app\controllers\savedFeedController.js" />
     <Content Include="Templates\newsViewer.html" />
     <Content Include="Templates\tweetViewer.html" />
     <Content Include="Scripts\app\controllers\twitterFeedController.js" />

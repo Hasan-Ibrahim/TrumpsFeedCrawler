@@ -1,5 +1,5 @@
 ﻿feedCrawlerModule.controller('twitterFeedController', [
-    '$scope', 'twitterFeedService', '$uibModal', function (scope, twitterFeedService, uibModal) {
+    '$scope', 'twitterFeedService', '$uibModal', 'localStorageService', function (scope, twitterFeedService, uibModal, localStorageService) {
 
         function loadFeedsFromTwitter() {
             scope.isTwitterFeedLoading = true;
@@ -8,6 +8,7 @@
             twitterFeedService.getTwitterFeedData().then(function (response) {
                 scope.twitterFeedData = response.data;
                 scope.isTwitterFeedLoading = false;
+                twitterFeedService.updateSavedStatusOfLiveFeed(scope.twitterFeedData);
 
             }, function (error) {
                 scope.isTwitterFeedLoading = false;
@@ -19,6 +20,19 @@
         scope.refreshFeed = function () {
             loadFeedsFromTwitter();
         }
+
+        scope.toggleSave = function (tweet) {
+            var link = "https://twitter.com/realDonaldTrump/status/" + tweet.StatusId;
+            if (tweet.isSaved) {
+                localStorageService.removeItem(link);
+            } else {
+                localStorageService.addItem(link, tweet.Text);
+            }
+        }
+
+        scope.$on('itemsUpdated', function () {
+            twitterFeedService.updateSavedStatusOfLiveFeed(scope.twitterFeedData);
+        });
 
         scope.showTweet = function (statusId) {
             uibModal.open({

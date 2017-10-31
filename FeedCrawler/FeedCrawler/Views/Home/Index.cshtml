@@ -1,37 +1,91 @@
-﻿<div class="row" ng-cloak>
-    <div class="col-md-6">
-        <div data-ng-controller="cnnFeedController">
-            <div class="header-block">
-                <h2>CNN News</h2><i class="fa fa- fa-refresh pull-right refresh-button" ng-click="refreshFeed()" title="Refresh"></i>
+﻿<uib-tabset active="active">
+    <uib-tab index="0" heading="Live Feed">
+        <div class="row" ng-cloak>
+            <div class="col-md-6">
+                <div data-ng-controller="cnnFeedController">
+                    <div class="header-block">
+                        <h2>CNN News</h2><i class="fa fa- fa-refresh pull-right refresh-button" ng-click="refreshFeed()" title="Refresh"></i>
+                    </div>
+
+                    <table class="table table-striped table-hover">
+                        <tr ng-repeat="news in cnnFeedData">
+                            <td ng-click="openNews(news.Link)">{{news.Title}}</td>
+                            <td ng-click="toggleSave(news)">
+                                <i ng-if="!news.isSaved" class="fa fa-star-o"></i>
+                                <i ng-if="news.isSaved" class="fa fa-star"></i>
+                            </td>
+                        </tr>
+                        <tr ng-if="isCnnFeedLoading"><td class="text-center"><i class="fa fa-spinner fa-spin loader-animation"></i></td></tr>
+                        <tr ng-if="!isCnnFeedLoading && !cnnFeedData.length"><td class="text-center"><i class="fa fa-fw fa-frown-o"></i>No News Found From CNN</td></tr>
+                    </table>
+                </div>
             </div>
 
-            <table class="table table-striped table-hover">
-                <tr ng-repeat="news in cnnFeedData" ng-click="openNews(news.Link)">
-                    <td>{{news.Title}}</td>
-                </tr>
-                <tr ng-if="isCnnFeedLoading"><td class="text-center"><i class="fa fa-spinner fa-spin loader-animation"></i></td></tr>
-                <tr ng-if="!isCnnFeedLoading && !cnnFeedData.length"><td class="text-center"><i class="fa fa-fw fa-frown-o"></i>No News Found From CNN</td></tr>
-            </table>
-        </div>
-    </div>
+            <div class="col-md-6">
+                <div data-ng-controller="twitterFeedController">
+                    <div class="header-block">
+                        <h2>Twitter Tweets</h2><i class="fa fa- fa-refresh pull-right refresh-button" ng-click="refreshFeed()" title="Refresh"></i>
+                    </div>
 
-    <div class="col-md-6">
-        <div data-ng-controller="twitterFeedController">
-            <div class="header-block">
-                <h2>Twitter Tweets</h2><i class="fa fa- fa-refresh pull-right refresh-button" ng-click="refreshFeed()" title="Refresh"></i>
+                    <table class="table table-striped table-hover">
+                        <tr ng-repeat="tweet in twitterFeedData">
+                            <td ng-click="showTweet(tweet.StatusId)">{{tweet.Text}}</td>
+                            <td ng-click="toggleSave(tweet)">
+                                <i ng-if="!tweet.isSaved" class="fa fa-star-o"></i>
+                                <i ng-if="tweet.isSaved" class="fa fa-star"></i>
+                            </td>
+                        </tr>
+                        <tr ng-if="isTwitterFeedLoading"><td class="text-center"><i class="fa fa-spinner fa-spin loader-animation"></i></td></tr>
+                        <tr ng-if="!isTwitterFeedLoading && !twitterFeedData.length"><td class="text-center"><i class="fa fa-fw fa-frown-o"></i>No Tweets Found From Twitter</td></tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </uib-tab>
+    <uib-tab index="1" heading="Saved Feed">
+        <div class="row" ng-cloak data-ng-controller="savedFeedController">
+            <div class="col-md-6">
+                <div >
+                    <div class="header-block">
+                        <h2>Saved CNN News</h2>
+                    </div>
+
+                    <table class="table table-striped table-hover">
+                        <tr ng-repeat="news in savedFeedFromCnn">
+                            <td ng-click="showDetails(news.Link)">{{news.Title}}</td>
+                            <td ng-click="remove(news)">
+                                <i class="fa fa-times"></i>
+                            </td>
+                        </tr>
+                        <tr ng-if="!savedFeedFromCnn.length"><td class="text-center"><i class="fa fa-fw fa-frown-o"></i>No Saved News From CNN</td></tr>
+                    </table>
+                </div>
             </div>
 
-            <table class="table table-striped table-hover">
-                <tr ng-repeat="tweet in twitterFeedData" ng-click="showTweet(tweet.StatusId)">
-                    <td>{{tweet.Text}}</td>
-                </tr>
-                <tr ng-if="isTwitterFeedLoading"><td class="text-center"><i class="fa fa-spinner fa-spin loader-animation"></i></td></tr>
-                <tr ng-if="!isTwitterFeedLoading && !twitterFeedData.length"><td class="text-center"><i class="fa fa-fw fa-frown-o"></i>No Tweet Found From Twitter</td></tr>
-            </table>
+            <div class="col-md-6">
+                <div>
+                    <div class="header-block">
+                        <h2>Saved Twitter Tweets</h2>
+                    </div>
+
+                    <table class="table table-striped table-hover">
+                        <tr ng-repeat="tweet in savedFeedFromTwitter">
+                            <td ng-click="showDetails(tweet.Link)">{{tweet.Title}}</td>
+                            <td ng-click="remove(tweet)">
+                                <i class="fa fa-times"></i>
+                            </td>
+                        </tr>
+                        <tr ng-if="!savedFeedFromTwitter.length"><td class="text-center"><i class="fa fa-fw fa-frown-o"></i>No Saved Tweets From Twitter</td></tr>
+                    </table>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-<div id="tweet"></div>
+    </uib-tab>
+</uib-tabset>
+@*<div>
+
+    </div>*@
+
 <script type="text/javascript">
     window.rootUrl = location.protocol + '//' + window.location.host;
 </script>

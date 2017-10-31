@@ -48,19 +48,10 @@ textarea {
     cursor: pointer;
 }
 
-#tweet {
-    width: 400px !important;
+.navbar-brand {
+    display: inline-flex;
+    line-height: 45px;
 }
-
-    #tweet iframe {
-        border: none !important;
-        box-shadow: none !important;
-    }
-
-    .navbar-brand {
-        display: inline-flex;
-        line-height: 45px;
-    }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
