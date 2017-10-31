@@ -1,19 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Xml.Linq;
 using FeedCrawler.Models;
 
 namespace FeedCrawler.Repositories
 {
-    public class CNNFeedRepository: ICNNFeedRepository
+    public class CNNFeedRepository : ICNNFeedRepository
     {
         public IEnumerable<RssFeed> GetRssFeedFromCNN()
         {
             WebClient wclient = new WebClient();
-            string RssData = wclient.DownloadString("http://rss.cnn.com/rss/edition.rss");
+            string RssData = wclient.DownloadString("http://rss.cnn.com/rss/cnn_latest.rss");
 
             XDocument xml = XDocument.Parse(RssData);
 

@@ -1,1 +1,1 @@
-﻿var feedCrawlerModule = angular.module('feedCrawlerModule', []);
+﻿var feedCrawlerModule = angular.module('feedCrawlerModule', ['ui.bootstrap']);
