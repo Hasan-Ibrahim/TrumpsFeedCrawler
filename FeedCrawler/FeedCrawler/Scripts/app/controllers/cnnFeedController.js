@@ -12,6 +12,7 @@
 
             }, function (error) {
                 scope.isCnnFeedLoading = false;
+                toastr.error("Failed to load feed from CNN.", "Error!");
             });
         }
 
@@ -24,10 +25,11 @@
         scope.toggleSave = function(feed) {
             if (feed.isSaved) {
                 localStorageService.removeItem(feed.Link);
+                toastr.success("Feed Removed from saved list.", "Success!");
             } else {
                 localStorageService.addItem(feed.Link, feed.Title);
+                toastr.success("Feed Added to saved list.", "Success!");
             }
-            //feed.isSaved = !feed.isSaved;
         }
 
         scope.$on('itemsUpdated', function () {

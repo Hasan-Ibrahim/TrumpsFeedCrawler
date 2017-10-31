@@ -30,6 +30,7 @@
 
         scope.remove = function (feed) {
             localStorageService.removeItem(feed.Link);
+            toastr.success("Feed Removed from saved list.", "Success!");
         }
 
     }]);

@@ -12,6 +12,7 @@
 
             }, function (error) {
                 scope.isTwitterFeedLoading = false;
+                toastr.error("Failed to load feed from twitter.", "Error!");
             });
         }
 
@@ -25,8 +26,10 @@
             var link = "https://twitter.com/realDonaldTrump/status/" + tweet.StatusId;
             if (tweet.isSaved) {
                 localStorageService.removeItem(link);
+                toastr.success("Feed Removed from saved list.", "Success!");
             } else {
                 localStorageService.addItem(link, tweet.Text);
+                toastr.success("Feed Added to saved list.", "Success!");
             }
         }
 
@@ -41,7 +44,7 @@
                 ariaDescribedBy: 'modal-body',
                 templateUrl: '/Templates/tweetViewer.html',
                 controller: 'twitterTweetViewerModalController',
-                size:'lg',
+                size: 'lg',
                 resolve: {
                     statusId: function () {
                         return statusId;
