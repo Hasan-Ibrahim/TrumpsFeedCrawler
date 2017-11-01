@@ -1,4 +1,4 @@
-# FeedCrawler
+# TrumpsFeedCrawler
 This is a web application which pulls data from CNN and Twitter that are relevant to Donald Trump
 
 ### Application Features
