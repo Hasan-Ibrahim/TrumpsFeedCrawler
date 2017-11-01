@@ -53,6 +53,8 @@ textarea {
     line-height: 45px;
 }
 
+a:visited:not(.nav-link):not(.navbar-brand) {color: purple;}
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }

@@ -289,12 +289,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular.js" />
-    <Content Include="Scripts\app\controllers\cnnNewsViewerModalController.js" />
     <Content Include="Scripts\app\controllers\savedFeedController.js" />
-    <Content Include="Templates\newsViewer.html" />
-    <Content Include="Templates\tweetViewer.html" />
     <Content Include="Scripts\app\controllers\twitterFeedController.js" />
-    <Content Include="Scripts\app\controllers\twitterTweetViewerModalController.js" />
     <Content Include="Scripts\app\feedCrawlerModule.js" />
     <Content Include="Scripts\app\services\cnnFeedService.js" />
     <Content Include="Scripts\app\services\twitterFeedService.js" />

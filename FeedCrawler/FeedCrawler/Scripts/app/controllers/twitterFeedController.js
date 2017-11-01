@@ -37,20 +37,5 @@
             twitterFeedService.updateSavedStatusOfLiveFeed(scope.twitterFeedData);
         });
 
-        scope.showTweet = function (statusId) {
-            uibModal.open({
-                animation: true,
-                ariaLabelledBy: 'Original Tweet',
-                ariaDescribedBy: 'modal-body',
-                templateUrl: '/Templates/tweetViewer.html',
-                controller: 'twitterTweetViewerModalController',
-                size: 'lg',
-                resolve: {
-                    statusId: function () {
-                        return statusId;
-                    }
-                }
-            });
-        }
     }
 ]);

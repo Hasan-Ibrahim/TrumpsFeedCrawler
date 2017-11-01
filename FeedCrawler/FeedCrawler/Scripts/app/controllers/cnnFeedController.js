@@ -35,21 +35,6 @@
         scope.$on('itemsUpdated', function () {
             cnnFeedService.updateSavedStatusOfLiveFeed(scope.cnnFeedData);
         });
-
-        scope.openNews = function (newsLink) {
-            uibModal.open({
-                animation: true,
-                ariaLabelledBy: 'Detail News',
-                ariaDescribedBy: 'modal-body',
-                templateUrl: '/Templates/newsViewer.html',
-                controller: 'cnnNewsViewerModalController',
-                size: 'lg',
-                resolve: {
-                    newsUrl: function () {
-                        return newsLink;
-                    }
-                }
-            });
-        }
+       
     }
 ]);
