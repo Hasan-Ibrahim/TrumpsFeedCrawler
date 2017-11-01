@@ -8,7 +8,7 @@ Another feature of this application is showing the latest Twitter tweets from Do
 
 Both of these preceding features are under the **Live Feed** tab.
 
-The special feature of this application is, it can save a feed item for later reading since the live feed only shows the latest items which can be lost very easily. There is a *star* icon at the right of each feed item which let you save the item for reading it later. You can view the saved items just under the **Saved Feed** tab. You can also remove an item from the list of the saved feed items. This application saves data in the browser's local storage since we have not used any database for this application. Therefore, the saved information will be only valid for the browser on which you have saved the feed items previously. 
+The special feature of this application is, it can save a feed item for later reading since the live feed only shows the latest items which can be lost very easily. There is a *star* icon at the right of each feed item which let you save the item for reading it later. You can view the saved items just under the **Saved Feed** tab. You can also remove an item from the list of the saved feed items. This application saves data in the browser's *localstorage* since we have not used any database for this application. Therefore, the saved information will be only valid for the browser on which you have saved the feed items previously. 
 
 Another special feature is, it tracks the read articles. As soon as you open a news link or Twitter tweet link, it will turn that link to *Purple* color which will ultimately help the user to track the already read news or tweets. 
 
