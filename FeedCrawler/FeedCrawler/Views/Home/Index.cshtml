@@ -45,7 +45,7 @@
     <uib-tab index="1" heading="Saved Feed">
         <div class="row" ng-cloak data-ng-controller="savedFeedController">
             <div class="col-md-6">
-                <div >
+                <div>
                     <div class="header-block">
                         <h2>Saved CNN News</h2>
                     </div>
@@ -85,4 +85,7 @@
 
 <script type="text/javascript">
     window.rootUrl = location.protocol + '//' + window.location.host;
+    window.onload = function () {
+        toastr.options.preventDuplicates = true;
+    }
 </script>
