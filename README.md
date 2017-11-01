@@ -14,7 +14,7 @@ Another special feature is, it tracks the read articles. As soon as you open a n
 
 ### Technologies
 The server side is built with **ASP.NET MVC5** and **C#** is used as the programming language. 
-The server side used **Unity** for dependency injection.
+The server-side used **Unity** for dependency injection.
 Thus, dependency injection is used to make different components completely decoupled and made it fully testable.
 **LinqToTwitter** library is used to pull data from Twitter. 
 
@@ -22,6 +22,6 @@ The client side is built with **AngulaJs** which has been used as the javascript
 **Fontawesome** is another library that has been used for icon support.
 
 ### Application Architecture
-The server side of the application is built following three tier architecture. There is a Repository layer for pulling the data from the services of Twitter and CNN. Then there is a Service layer which pulls data from the repositories and process the data according to buisness logic. The final layer is Controller layer that is responsible for gathering data from the services and deliver the data to client side upon request. 
+The server side of the application is built following three-tier architecture. There is a Repository layer for pulling the data from the services of Twitter and CNN. Then there is a Service layer which pulls data from the repositories and processes the data according to business logic. The final layer is Controller layer that is responsible for gathering data from the services and deliver the data to client-side upon request. 
 
 The client side used MVVM and MVC pattern. **AngularJS** framework helped to implement those patterns. There is a service layer which pulls data from the server side and also responsible for processing data according to business logic. The controllers pull data from the services and show them in the view. Controllers also handle the user interactions. 
