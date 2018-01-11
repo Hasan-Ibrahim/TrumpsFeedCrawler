@@ -1,5 +1,5 @@
 # TrumpsFeedCrawler
-This is a web application which pulls data from CNN and Twitter that are relevant to Donald Trump. You can use the application here: http://shuvo123456.azurewebsites.net
+This is a web application which pulls data from CNN and Twitter that are relevant to Donald Trump.
 
 ### Application Features
 This application let you view the most recent news titles about Donald Trump that are published on CNN. This not only let you view those news titles, but also navigates you to the detailed news as soon as you click on the news title. The news titles have been pulled from http://rss.cnn.com/rss/cnn_latest.rss.
